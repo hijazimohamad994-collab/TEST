@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5f0">
+  <meta name="description" content="DYLLU makes dependable hardware tools for people who love to make things. Shop thoughtfully designed tools, built for the long haul.">
+  <title>DYLLU — Tools for the hands-on</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #20231f;
+      --muted: #777a72;
+      --paper: #f6f5f0;
+      --white: #fffefa;
+      --green: #355a43;
+      --green-dark: #294735;
+      --lime: #d3ef73;
+      --line: #e6e5dd;
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: 'DM Sans', Arial, sans-serif;
+      --display: 'Manrope', Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { color: inherit; }
+    .announcement { background: var(--green); color: white; text-align: center; padding: 10px 18px; font-size: 11px; letter-spacing: .11em; text-transform: uppercase; }
+    .announcement strong { color: var(--lime); font-weight: 700; }
+    header { height: 76px; display: flex; align-items: center; justify-content: space-between; padding: 0 6.2%; background: var(--paper); position: sticky; top: 0; z-index: 20; border-bottom: 1px solid rgba(32,35,31,.06); }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); font-size: 23px; font-weight: 800; letter-spacing: -.09em; }
+    .brand-mark { width: 25px; height: 25px; display: inline-block; background: var(--lime); border-radius: 50% 50% 48% 10%; transform: rotate(-35deg); position: relative; }
+    .brand-mark:after { content: ''; width: 8px; height: 8px; border: 2px solid var(--green); border-radius: 50%; position: absolute; top: 7px; left: 7px; }
+    nav { display: flex; align-items: center; gap: 36px; font-size: 13px; font-weight: 600; }
+    nav a { transition: color .2s; } nav a:hover { color: var(--green); }
+    .header-actions { display: flex; align-items: center; gap: 21px; }
+    .icon-button { position: relative; border: 0; background: transparent; padding: 8px; cursor: pointer; display: inline-flex; }
+    .cart-count { position: absolute; top: 0; right: 0; min-width: 16px; height: 16px; display: grid; place-items: center; background: var(--lime); border-radius: 50%; font-size: 9px; font-weight: 700; }
+    .menu-button { display: none; }
+    .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 570px; padding: 0 6.2%; align-items: center; gap: 5%; overflow: hidden; }
+    .hero-copy { padding: 55px 0 70px; max-width: 550px; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow:before { content: ''; width: 25px; height: 1px; background: var(--green); }
+    h1 { font-family: var(--display); font-weight: 600; font-size: clamp(52px, 6.2vw, 82px); line-height: .99; letter-spacing: -.075em; margin: 26px 0 21px; }
+    h1 em { font-family: var(--serif); font-weight: 400; letter-spacing: -.065em; }
+    .hero-copy p { font-size: 15px; line-height: 1.8; max-width: 410px; color: var(--muted); margin: 0 0 29px; }
+    .button { min-height: 51px; padding: 0 23px; display: inline-flex; align-items: center; justify-content: center; gap: 22px; background: var(--green); color: white; border: 1px solid var(--green); border-radius: 3px; font-weight: 600; font-size: 12px; transition: background .2s, transform .2s; cursor: pointer; }
+    .button:hover { background: var(--green-dark); transform: translateY(-2px); }
+    .button svg { transition: transform .2s; } .button:hover svg { transform: translateX(3px); }
+    .hero-note { display: flex; align-items: center; gap: 12px; margin-top: 37px; font-size: 11px; color: var(--muted); }
+    .avatars { display: flex; padding-left: 4px; }
+    .avatars span { width: 25px; height: 25px; margin-left: -5px; border: 2px solid var(--paper); border-radius: 50%; background: #dcb89a; }
+    .avatars span:nth-child(2) { background: #8d9f7d; } .avatars span:nth-child(3) { background: #d1a878; }
+    .hero-visual { position: relative; height: min(475px, 43vw); min-height: 370px; border-radius: 45% 45% 3px 3px; background: #d8d6ca; overflow: hidden; }
+    .hero-visual:before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, transparent 57%, rgba(23,31,24,.25)); pointer-events: none; }
+    .hero-visual img { width: 100%; height: 100%; object-fit: cover; object-position: 54% center; }
+    .hero-label { position: absolute; z-index: 2; right: 22px; bottom: 22px; background: var(--lime); border-radius: 50%; width: 91px; height: 91px; display: grid; place-items: center; text-align: center; font-size: 10px; line-height: 1.45; font-weight: 700; letter-spacing: .02em; transform: rotate(9deg); }
+    .trust-row { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 6.2%; padding: 19px 0; display: flex; justify-content: space-between; align-items: center; color: #777a72; font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
+    .trust-item { display: flex; align-items: center; gap: 9px; }
+    .trust-item svg { color: var(--green); }
+    .section { padding: 100px 6.2%; }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 35px; gap: 20px; }
+    .section-heading h2 { font-family: var(--display); font-size: clamp(34px, 4vw, 48px); line-height: 1.05; letter-spacing: -.065em; font-weight: 600; margin: 13px 0 0; }
+    .text-link { font-size: 12px; font-weight: 600; border-bottom: 1px solid var(--green); padding-bottom: 6px; white-space: nowrap; }
+    .products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 17px; }
+    .product-card { min-width: 0; }
+    .product-image { aspect-ratio: .91; background: #e9e8e1; position: relative; overflow: hidden; border-radius: 3px; }
+    .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .product-card:hover .product-image img { transform: scale(1.045); }
+    .tag { position: absolute; left: 12px; top: 12px; background: var(--white); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; padding: 7px 9px; }
+    .add-button { position: absolute; right: 12px; bottom: 12px; width: 38px; height: 38px; border: 0; border-radius: 50%; background: var(--white); display: grid; place-items: center; cursor: pointer; transition: background .2s, transform .2s; }
+    .add-button:hover { background: var(--lime); transform: rotate(90deg); }
+    .product-info { display: flex; justify-content: space-between; align-items: start; gap: 8px; padding-top: 15px; }
+    .product-name { font-size: 13px; font-weight: 600; margin: 0 0 6px; }
+    .product-detail { color: var(--muted); font-size: 11px; }
+    .price { font-size: 12px; font-weight: 600; white-space: nowrap; }
+    .story { padding: 0 6.2% 100px; }
+    .story-card { display: grid; grid-template-columns: 1fr 1fr; background: #e9e8e1; min-height: 390px; overflow: hidden; }
+    .story-image { min-height: 360px; overflow: hidden; }
+    .story-image img { width: 100%; height: 100%; object-fit: cover; }
+    .story-copy { padding: 55px 11%; display: flex; flex-direction: column; justify-content: center; }
+    .story-copy h2 { font-family: var(--display); font-size: clamp(32px, 4vw, 48px); line-height: 1.04; letter-spacing: -.07em; font-weight: 600; margin: 18px 0; }
+    .story-copy p { font-size: 13px; color: var(--muted); line-height: 1.8; max-width: 390px; margin: 0 0 24px; }
+    .story-copy .text-link { width: fit-content; }
+    .categories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 30px; }
+    .category { min-height: 180px; background: var(--green); color: white; padding: 25px; display: flex; justify-content: space-between; flex-direction: column; position: relative; overflow: hidden; }
+    .category:nth-child(2) { background: #dadfc8; color: var(--ink); }
+    .category:nth-child(3) { background: #e6d9c8; color: var(--ink); }
+    .category span { font-size: 10px; opacity: .7; letter-spacing: .12em; text-transform: uppercase; }
+    .category strong { font-family: var(--display); font-size: 21px; font-weight: 600; letter-spacing: -.04em; }
+    .category .arrow { position: absolute; right: 21px; bottom: 20px; font-size: 19px; transition: transform .2s; }
+    .category:hover .arrow { transform: translate(3px,-3px); }
+    .newsletter { background: var(--green); color: white; padding: 68px 6.2%; display: flex; align-items: center; justify-content: space-between; gap: 35px; }
+    .newsletter h2 { font-family: var(--display); font-size: clamp(28px, 3.5vw, 42px); letter-spacing: -.06em; line-height: 1.05; font-weight: 600; margin: 0 0 10px; }
+    .newsletter p { margin: 0; font-size: 12px; color: rgba(255,255,255,.7); }
+    .newsletter-form { display: flex; width: min(100%, 410px); border-bottom: 1px solid rgba(255,255,255,.55); }
+    .newsletter-form input { color: white; background: transparent; border: 0; outline: 0; padding: 14px 0; flex: 1; min-width: 0; font-size: 12px; }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,.65); }
+    .newsletter-form button { color: var(--lime); background: transparent; border: 0; font-size: 11px; font-weight: 700; cursor: pointer; padding: 0 4px 0 15px; }
+    footer { padding: 35px 6.2%; display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: var(--muted); }
+    .footer-links { display: flex; gap: 23px; }
+    .toast { position: fixed; z-index: 50; bottom: 24px; left: 50%; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; background: var(--ink); color: white; padding: 13px 20px; border-radius: 3px; font-size: 12px; transition: .25s; }
+    .toast.show { transform: translate(-50%, 0); opacity: 1; }
+    @media (max-width: 900px) {
+      header { padding: 0 4%; } .hero { padding: 0 4%; gap: 3%; min-height: 500px; }
+      .trust-row { margin: 0 4%; } .section { padding: 80px 4%; } .story { padding: 0 4% 80px; }
+      .products { grid-template-columns: repeat(2, 1fr); row-gap: 28px; } .story-copy { padding: 35px 8%; }
+      .newsletter { padding: 58px 4%; }
+    }
+    @media (max-width: 640px) {
+      .announcement { font-size: 9px; padding: 9px 10px; }
+      header { height: 65px; padding: 0 5%; } .brand { font-size: 21px; }
+      nav { display: none; position: absolute; top: 65px; left: 0; right: 0; background: var(--paper); padding: 24px 6%; flex-direction: column; align-items: start; gap: 20px; border-bottom: 1px solid var(--line); }
+      nav.open { display: flex; } .header-actions { gap: 8px; } .menu-button { display: inline-flex; }
+      .hero { grid-template-columns: 1fr; padding: 0 5%; gap: 0; }
+      .hero-copy { padding: 47px 0 32px; } h1 { font-size: clamp(55px, 16vw, 76px); margin: 20px 0 17px; }
+      .hero-copy p { font-size: 13px; max-width: 340px; } .hero-note { margin-top: 27px; }
+      .hero-visual { height: 100vw; min-height: 300px; max-height: 450px; margin-bottom: 35px; border-radius: 48% 48% 3px 3px; }
+      .trust-row { margin: 0 5%; padding: 16px 0; justify-content: center; flex-wrap: wrap; gap: 15px 23px; font-size: 8px; }
+      .trust-item { gap: 5px; } .trust-item svg { width: 13px; }
+      .section { padding: 67px 5%; } .section-heading { align-items: start; flex-direction: column; margin-bottom: 25px; }
+      .section-heading h2 { font-size: 38px; } .products { gap: 24px 11px; }
+      .product-image { aspect-ratio: .82; } .product-name { font-size: 11px; } .product-detail { font-size: 10px; }
+      .price { font-size: 11px; } .add-button { width: 33px; height: 33px; right: 8px; bottom: 8px; }
+      .story { padding: 0 5% 67px; } .story-card { grid-template-columns: 1fr; }
+      .story-image { min-height: 250px; height: 65vw; } .story-copy { padding: 33px 8% 38px; }
+      .categories { grid-template-columns: 1fr; gap: 10px; } .category { min-height: 140px; }
+      .newsletter { padding: 47px 5%; flex-direction: column; align-items: stretch; gap: 22px; }
+      footer { padding: 25px 5%; flex-wrap: wrap; gap: 17px; } .footer-links { gap: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *:before, *:after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="announcement"><strong>Free shipping</strong> on orders over $75 &nbsp;·&nbsp; Made for the long haul</div>
+  <header>
+    <a class="brand" href="#home" aria-label="DYLLU home"><span class="brand-mark" aria-hidden="true"></span>DYLLU</a>
+    <nav id="site-nav" aria-label="Main navigation">
+      <a href="#shop">Shop tools</a><a href="#story">Our story</a><a href="#collections">Collections</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-button" href="#shop" aria-label="Shop tools"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg></a>
+      <button class="icon-button" id="cart-button" aria-label="Shopping bag, 0 items"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h14l1 12H4L5 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><span class="cart-count" id="cart-count">0</span></button>
+      <button class="icon-button menu-button" id="menu-button" aria-label="Open menu" aria-expanded="false"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow">Good work starts here</div>
+        <h1 id="hero-title">Make room<br>for <em>making.</em></h1>
+        <p>Thoughtful hardware tools for the things you dream up, fix up, and pass down. Built to feel right in your hand—and stay there for years.</p>
+        <a class="button" href="#shop">Explore the collection <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10h13M10 4l6 6-6 6"/></svg></a>
+        <div class="hero-note"><span class="avatars" aria-hidden="true"><span></span><span></span><span></span></span><span>Loved by makers in 30+ countries</span></div>
+      </div>
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1200&q=85" alt="A well-used workbench with dependable hand tools ready for a project" fetchpriority="high">
+        <div class="hero-label">DESIGNED<br>TO DO<br>GOOD WORK</div>
+      </div>
+    </section>
+
+    <div class="trust-row" aria-label="Our promises">
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 2 3 5v4c0 4.2 2.8 7.3 7 9 4.2-1.7 7-4.8 7-9V5l-7-3Z"/><path d="m7 10 2 2 4-4"/></svg>Lifetime-ready quality</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 6h10v9H2zM12 9h3l3 3v3h-6z"/><circle cx="5.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/></svg>Free shipping over $75</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 7a6.5 6.5 0 1 0 1 5M16 3v4h-4"/><path d="M7 10h6M10 7v6"/></svg>30-day easy returns</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 17s-7-4.1-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 17 8c0 4.9-7 9-7 9Z"/></svg>Made with intention</div>
+    </div>
+
+    <section class="section" id="shop" aria-labelledby="shop-title">
+      <div class="section-heading"><div><div class="eyebrow">The everyday essentials</div><h2 id="shop-title">Tools that earn<br>their place.</h2></div><a class="text-link" href="#collections">Shop all tools &nbsp;↗</a></div>
+      <div class="products">
+        <article class="product-card"><div class="product-image"><img src="https://images.unsplash.com/photo-1581147036324-c1c89c2c8b5c?auto=format&fit=crop&w=700&q=80" alt="Compact cordless drill for home projects" loading="lazy"><span class="tag">Bestseller</span><button class="add-button" data-product="The Everyday Drill" aria-label="Add The Everyday Drill to bag"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 4v12M4 10h12"/></svg></button></div><div class="product-info"><div><p class="product-name">The Everyday Drill</p><span class="product-detail">A little power, a lot of precision</span></div><span class="price">$89</span></div></article>
+        <article class="product-card"><div class="product-image"><img src="https://images.unsplash.com/photo-1581783898377-1c85bf937427?auto=format&fit=crop&w=700&q=80" alt="Precision screwdriver set arranged for use" loading="lazy"><span class="tag">12-piece set</span><button class="add-button" data-product="Precision Driver Set" aria-label="Add Precision Driver Set to bag"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 4v12M4 10h12"/></svg></button></div><div class="product-info"><div><p class="product-name">Precision Driver Set</p><span class="product-detail">The right fit, every time</span></div><span class="price">$34</span></div></article>
+        <article class="product-card"><div class="product-image"><img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=700&q=80" alt="Well-made hand tools for a home workshop" loading="lazy"><span class="tag">Workshop pick</span><button class="add-button" data-product="The Solid Claw Hammer" aria-label="Add The Solid Claw Hammer to bag"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 4v12M4 10h12"/></svg></button></div><div class="product-info"><div><p class="product-name">The Solid Claw Hammer</p><span class="product-detail">Balanced for the long day</span></div><span class="price">$42</span></div></article>
+        <article class="product-card"><div class="product-image"><img src="https://images.unsplash.com/photo-1581166397057-235af2b3c6dd?auto=format&fit=crop&w=700&q=80" alt="Measuring tape for accurate cuts and careful work" loading="lazy"><span class="tag">New</span><button class="add-button" data-product="Measure Twice Tape" aria-label="Add Measure Twice Tape to bag"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 4v12M4 10h12"/></svg></button></div><div class="product-info"><div><p class="product-name">Measure Twice Tape</p><span class="product-detail">Clear marks. No guesswork.</span></div><span class="price">$18</span></div></article>
+      </div>
+    </section>
+
+    <section class="story" id="story" aria-label="Our approach">
+      <div class="story-card"><div class="story-image"><img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1100&q=80" alt="A craftsperson working carefully at a wooden bench" loading="lazy"></div><div class="story-copy"><div class="eyebrow">A better way to build</div><h2>Less, but<br>better made.</h2><p>We believe a good tool should get out of your way. So we focus on the details you can feel: considered materials, comfortable grips, and dependable performance—without the fuss.</p><a class="text-link" href="#collections">Get to know DYLLU &nbsp;↗</a></div></div>
+    </section>
+
+    <section class="section" id="collections" aria-labelledby="collections-title" style="padding-top:0">
+      <div class="section-heading"><div><div class="eyebrow">Find your next project</div><h2 id="collections-title">Start anywhere.</h2></div></div>
+      <div class="categories">
+        <a class="category" href="#shop"><span>01 / Get a grip</span><strong>Hand tools</strong><span class="arrow">↗</span></a>
+        <a class="category" href="#shop"><span>02 / Power up</span><strong>Power tools</strong><span class="arrow">↗</span></a>
+        <a class="category" href="#shop"><span>03 / Make it yours</span><strong>Workshop & storage</strong><span class="arrow">↗</span></a>
+      </div>
+    </section>
+
+    <section class="newsletter" aria-labelledby="newsletter-title"><div><h2 id="newsletter-title">Good things, made useful.</h2><p>Notes from the workshop, new tools, and ideas worth making.</p></div><form class="newsletter-form" id="newsletter-form"><label for="email" class="visually-hidden" style="position:absolute;clip:rect(0,0,0,0)">Email address</label><input id="email" type="email" placeholder="Your email address" required><button type="submit">COUNT ME IN &nbsp;→</button></form></section>
+  </main>
+
+  <footer><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true"></span>DYLLU</a><span>© 2025 DYLLU Tools. Made for the hands-on.</span><div class="footer-links"><a href="#shop">Shop</a><a href="#story">About</a><a href="mailto:hello@dyllu.com">Contact</a></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const count = document.getElementById('cart-count');
+    const cartButton = document.getElementById('cart-button');
+    const toast = document.getElementById('toast');
+    let cartItems = 0;
+    let toastTimer;
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
+    }
+    document.querySelectorAll('.add-button').forEach(button => {
+      button.addEventListener('click', () => {
+        cartItems += 1;
+        count.textContent = cartItems;
+        cartButton.setAttribute('aria-label', `Shopping bag, ${cartItems} ${cartItems === 1 ? 'item' : 'items'}`);
+        showToast(`${button.dataset.product} added to your bag`);
+      });
+    });
+    cartButton.addEventListener('click', () => showToast(cartItems ? `Your bag has ${cartItems} ${cartItems === 1 ? 'item' : 'items'}` : 'Your bag is ready for something good'));
+    const menuButton = document.getElementById('menu-button');
+    const nav = document.getElementById('site-nav');
+    menuButton.addEventListener('click', () => {
+      const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!expanded));
+      menuButton.setAttribute('aria-label', expanded ? 'Open menu' : 'Close menu');
+      nav.classList.toggle('open', !expanded);
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open menu');
+    }));
+    document.getElementById('newsletter-form').addEventListener('submit', event => {
+      event.preventDefault();
+      showToast('You’re on the list. See you in the workshop!');
+      event.currentTarget.reset();
+    });
+  </script>
+</body>
+</html>
